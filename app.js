@@ -8,7 +8,6 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Root endpoint with helpful message
 app.get('/', (req, res) => {
   res.json({
     message: '🎉 Welcome to the School Management API!',
