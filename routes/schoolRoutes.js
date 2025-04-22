@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
   res.send('Welcome to the School Management API!');
 });
 
-// Add School
 router.post('/addSchool', [
   body('name').notEmpty().withMessage('Name is required'),
   body('address').notEmpty().withMessage('Address is required'),
@@ -15,7 +14,6 @@ router.post('/addSchool', [
   body('longitude').isFloat({ min: -180, max: 180 }).withMessage('Valid longitude is required'),
 ], schoolController.addSchool);  
 
-// List Schools
 router.get('/listSchools', schoolController.listSchools);  
 
 module.exports = router;
