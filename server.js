@@ -1,6 +1,5 @@
 const db = require('./config/db');
 
-// Create table on first run
 db.query(`
   CREATE TABLE IF NOT EXISTS schools (
     id INT AUTO_INCREMENT PRIMARY KEY,
