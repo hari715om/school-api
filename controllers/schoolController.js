@@ -6,9 +6,13 @@ const haversineDistance = require('../utils/haversine'); // Import the haversine
 exports.listSchools = async (req, res) => {
   const { userLat, userLon } = req.query;
 
-  // Check if userLat and userLon are provided
+  // Validate if userLat and userLon are provided and are valid numbers
   if (!userLat || !userLon) {
     return res.status(400).json({ error: "Please provide user latitude and longitude." });
+  }
+
+  if (isNaN(userLat) || isNaN(userLon)) {
+    return res.status(400).json({ error: "Latitude and longitude must be valid numbers." });
   }
 
   const sql = 'SELECT * FROM schools';
