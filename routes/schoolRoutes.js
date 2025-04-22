@@ -4,6 +4,11 @@ const router = express.Router();
 const { body } = require('express-validator');
 const schoolController = require('../controllers/schoolController');
 
+// ✅ Root route (Health check or Welcome)
+router.get('/', (req, res) => {
+  res.send('🎉 Welcome to the School Management API!');
+});
+
 // Add School
 router.post('/addSchool', [
   body('name').notEmpty().withMessage('Name is required'),
