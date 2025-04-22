@@ -1,0 +1,18 @@
+const db = require('./config/db');
+
+// Create table on first run
+db.query(`
+  CREATE TABLE IF NOT EXISTS schools (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    latitude FLOAT NOT NULL,
+    longitude FLOAT NOT NULL
+  )
+`, (err, result) => {
+  if (err) {
+    console.error("Table creation error:", err);
+  } else {
+    console.log("Table ready.");
+  }
+});
